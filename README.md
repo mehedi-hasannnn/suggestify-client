@@ -6,7 +6,7 @@
 
 ## 🌐 Live Site
 
-🔗 [Live Website](https://suggestify-bd.web.app/)
+🔗 [Live Website](https://suggestify-bd.web.app/)(https://suggestify-bd.web.app/)
 
 ---
 
