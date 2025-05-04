@@ -36,7 +36,7 @@ const MyQueries = () => {
       <div className="bg-gray-100 py-10 px-6 text-center rounded-lg shadow-md">
         <h1 className="text-3xl font-bold text-gray-800 mb-6">My Queries</h1>
         <Link to="/add-queries">
-          <button className="bg-[#09b850] text-white text-md font-semibold px-6 py-3 rounded-lg hover:bg-[#09b850]transition duration-300">
+          <button className="bg-[#794eca] hover:bg-violet-800 text-white text-md font-semibold px-6 py-3 rounded-lg hover:bg-[#09b850]transition duration-300">
             Add Queries
           </button>
         </Link>

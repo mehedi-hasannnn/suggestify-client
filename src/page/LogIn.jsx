@@ -6,129 +6,147 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../firebase/firebase.init";
-import { toast, ToastContainer } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const LogIn = () => {
-  const {signInUser, setUser,user} = useContext(AuthContext);
-  const navigate = useNavigate()
-  const [error,setError] = useState({})
-  const location = useLocation()
+  const { signInUser, setUser, user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [error, setError] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const provider = new GoogleAuthProvider();
 
-  const handleSignIn = e =>{
+  const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        console.log(email,password)
+    const email = form.email.value;
+    const password = form.password.value;
 
-        signInUser(email,password)
-        .then(result => {
-          console.log(result)
-          const user = result.user;
-          setUser(user);
-          toast.success("Login successful!");
-          navigate(location?.state ? location.state : '/')
-        })
-        .catch(err=>{
-          console.log(err)
-          setError({...error,login:err.message})
-          toast.error("Login failed! Please check your credentials.");
-        })
-  }
+    signInUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        Swal.fire({
+          icon: "success",
+          title: "Login Successful",
+          text: "Welcome back!",
+          timer: 2000,
+          confirmButtonColor: "#8C52FF"
+        });
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((err) => {
+        console.log(err);
+        setError({ ...error, login: err.message });
+        Swal.fire({
+          icon: "error",
+          title: "Login Failed",
+          text: "Please check your credentials.",
+          timer: 2000,
+          confirmButtonColor: "#8C52FF"
+        });
+      });
+  };
 
   const handleGoogleSignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
         setUser(user);
-        toast.success("Google sign-in successful!");
+        Swal.fire({
+          icon: "success",
+          title: "Google Sign-In Successful",
+          timer: 2000,
+          confirmButtonColor: "#8C52FF"
+        });
         navigate("/");
       })
       .catch((error) => {
-        console.log(error)
-        toast.error("Google sign-in failed! Please try again.");
+        console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Google Sign-In Failed",
+          timer: 2000,
+          confirmButtonColor: "#8C52FF"
+        });
       });
   };
+
   useEffect(() => {
-    if (!!user && typeof window != "undefined") {
+    if (!!user && typeof window !== "undefined") {
       window.location.replace("/");
     }
   }, [user]);
+
   return (
-    <div className="flex items-center justify-center flex-col lg:flex-row">
-      <div className="text-center lg:text-left sm:w-[500px] w-[300px] sm:ml-44 px-5">
-        <Lottie animationData={loginLottieData}></Lottie>
+    <div className="min-h-screen flex flex-col lg:flex-row items-center justify-center bg-gradient-to-r from-white to-[#f4f4f7] dark:from-slate-900 dark:to-slate-800 px-6">
+      <div className="w-full max-w-md mx-auto lg:mr-12 mb-8 lg:mb-0">
+        <Lottie animationData={loginLottieData} loop={true} />
       </div>
 
-      <div className="card bg-base-100 py-10 w-full mx-auto my-10 max-w-md shrink-0 shadow-2xl">
-      <ToastContainer position="top-right" />
-        <h2 className="text-2xl font-semibold text-center">
-          Login your account
+      <div className="card w-full max-w-md p-8 bg-white dark:bg-slate-800 shadow-lg rounded-lg">
+        <h2 className="text-3xl font-bold text-center text-[#8C52FF] mb-6">
+          Welcome Back
         </h2>
-        <form onSubmit={handleSignIn} className="card-body">
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Email</span>
-            </label>
+
+        <form onSubmit={handleSignIn}>
+          <div className="mb-4">
+            <label className="block font-medium mb-1">Email</label>
             <input
               type="email"
               name="email"
-              placeholder="Email"
-              className="input input-bordered"
+              placeholder="you@example.com"
+              className="input input-bordered w-full"
               required
             />
           </div>
-          <div className="form-control relative">
-            <label className="label">
-              <span className="label-text">Password</span>
-            </label>
+
+          <div className="mb-4 relative">
+            <label className="block font-medium mb-1">Password</label>
             <input
               type={showPassword ? "text" : "password"}
               name="password"
-              placeholder="password"
-              className="input input-bordered"
+              placeholder="Enter your password"
+              className="input input-bordered w-full"
               required
             />
-             <button
-              onClick={() => setShowPassword(!showPassword)}
+            <button
               type="button"
-              className="btn btn-xs absolute right-4 top-12"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-10 text-gray-500"
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
-            {
-              error.login && (
-                <label className="label text-sm text-red-600">
-                  {error.login}
-                </label>
-              )
-            }
+            {error.login && (
+              <p className="text-sm text-red-600 mt-1">{error.login}</p>
+            )}
           </div>
-          <div className="form-control mt-6">
-            <button className="btn dark:text-[#273248] dark:bg-slate-300 bg-[#09b850] text-white hover:text-black">
-              Login
-            </button>
-          </div>
+
+          <button
+            type="submit"
+            className="btn w-full bg-[#8C52FF] text-white hover:bg-violet-700 transition mb-4"
+          >
+            Login
+          </button>
         </form>
-        <p className="text-center font-semibold">
-          Do not Have an Account?{" "}
-          <Link to="/auth/register" className="text-red-500">
+
+        <p className="text-center text-sm text-gray-600 dark:text-gray-300 mb-4">
+          Don’t have an account?{" "}
+          <Link to="/auth/register" className="text-[#8C52FF] font-medium">
             Register
           </Link>
         </p>
 
         <div className="divider">OR</div>
-        <div className="form-control w-10/12 mx-auto">
-          <button onClick={handleGoogleSignIn} className="btn border border-black">
-            <span className="text-2xl">
-              <FcGoogle />{" "}
-            </span>{" "}
-            Login with Google
-          </button>
-        </div>
+
+        <button
+          onClick={handleGoogleSignIn}
+          className="btn w-full border border-gray-300 flex items-center gap-2"
+        >
+          <FcGoogle className="text-2xl" />
+          Login with Google
+        </button>
       </div>
     </div>
   );

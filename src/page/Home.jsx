@@ -28,7 +28,7 @@ const Home = () => {
         ))}
       </div>
         <ProudClients/>
-        <Fade direction="right" duration={2000}>
+        <Fade direction="up" duration={2000}>
         <Leading />
         </Fade>
         <NewsLater/>

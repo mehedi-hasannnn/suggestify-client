@@ -91,7 +91,7 @@ const AllQueries = () => {
             <button
               onClick={() => handleViewChange(4)}
               className={`px-3 py-2 border rounded-lg ${
-                activeButton === 4 ? "bg-[#09b84d] text-white" : "text-gray-700 hover:bg-blue-100"
+                activeButton === 4 ? "bg-[#6836c7] text-white" : "text-gray-700 hover:bg-blue-100"
               }`}
             >
               <MdOutlineViewHeadline />
@@ -99,7 +99,7 @@ const AllQueries = () => {
             <button
               onClick={() => handleViewChange(3)}
               className={`px-3 py-2 border rounded-lg ${
-                activeButton === 3 ? "bg-[#09b84d] text-white" : "text-gray-700 hover:bg-blue-100"
+                activeButton === 3 ? "bg-[#6836c7] text-white" : "text-gray-700 hover:bg-blue-100"
               }`}
             >
               <HiOutlineViewGrid />

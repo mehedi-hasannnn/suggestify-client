@@ -125,7 +125,7 @@ const AddQueries = () => {
           <div className="flex justify-center mt-6">
             <button
               type="submit"
-              className="px-8 py-3 text-white bg-[#09b850] rounded-md shadow-md hover:bg-[#09b850] focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 transition-colors"
+              className="px-8 py-3 text-white bg-[#8C52FF] rounded-md shadow-md hover:bg-[#725ca7] focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 transition-colors"
             >
               Add Query
             </button>

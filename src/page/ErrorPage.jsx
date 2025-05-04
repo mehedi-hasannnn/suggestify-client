@@ -1,58 +1,63 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from "react-router-dom";
 
 const ErrorPage = () => {
+  const navigate = useNavigate();
+
   return (
-    <section className='bg-white '>
-      <div className='container min-h-screen px-6 py-12 mx-auto lg:flex lg:items-center lg:gap-12'>
-        <div className='wf-ull lg:w-1/2'>
-          <p className='text-sm font-medium text-gray-500'>404 error</p>
-          <h1 className='mt-3 text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl'>
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#fdfcff] to-[#f0f1ff] px-6">
+      <div className="max-w-6xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
+        {/* Text Section */}
+        <div className="lg:w-1/2 text-center lg:text-left">
+          <p className="text-sm font-semibold text-[#8b5cf6] uppercase">404 Error</p>
+          <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mt-4">
             Page not found
           </h1>
-          <p className='mt-4 text-gray-500 dark:text-gray-400'>
-            Sorry, the page you are looking for doesnt exist.Here are some
-            helpful links:
+          <p className="mt-4 text-gray-600 text-base sm:text-lg">
+            Oops! The page you’re looking for doesn’t exist. Let’s get you back on track.
           </p>
 
-          <div className='flex items-center mt-6 gap-x-3'>
-            <button className='flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto hover:bg-gray-100 '>
+          <div className="mt-8 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+            <button
+              onClick={() => navigate(-1)}
+              className="flex items-center justify-center gap-2 px-6 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 transition"
+            >
               <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-                strokeWidth='1.5'
-                stroke='currentColor'
-                className='w-5 h-5 rtl:rotate-180'
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="w-5 h-5"
               >
                 <path
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-                  d='M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18'
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
                 />
               </svg>
-
-              <span>Go back</span>
+              Go back
             </button>
 
             <Link
-              to='/'
-              className='w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-gray-500 rounded-lg shrink-0 sm:w-auto hover:bg-gray-600'
+              to="/"
+              className="px-6 py-2.5 text-sm font-medium text-white bg-[#8b5cf6] rounded-lg hover:bg-[#7c3aed] transition"
             >
               Take me home
             </Link>
           </div>
         </div>
 
-        <div className='relative w-full mt-8 lg:w-1/2 lg:mt-0'>
+        {/* Image Section */}
+        <div className="lg:w-1/2">
           <img
-            className=' w-full lg:h-[32rem] h-80 md:h-96 rounded-lg object-cover '
-            src='https://images.unsplash.com/photo-1613310023042-ad79320c00ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
-            alt=''
+            src="https://i.ibb.co.com/VcTqqJpk/404error.jpg"
+            alt="404 Error"
+            className="w-full h-auto max-h-[500px] object-contain rounded-xl shadow-lg"
           />
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ErrorPage
+export default ErrorPage;

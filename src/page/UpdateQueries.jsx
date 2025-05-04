@@ -71,7 +71,7 @@ const UpdateQueries = () => {
                   defaultValue={query?.productName}
                   type="text"
                   placeholder="Enter the product name"
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-[#09b850] focus:ring focus:ring-blue-300 focus:ring-opacity-50 focus:outline-none"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-[#8C52FF] focus:ring focus:ring-blue-300 focus:ring-opacity-50 focus:outline-none"
                   required
                 />
               </div>
@@ -85,7 +85,7 @@ const UpdateQueries = () => {
                   defaultValue={query?.brand}
                   type="text"
                   placeholder="Enter the product brand"
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-[#09b850] focus:ring focus:ring-blue-300 focus:ring-opacity-50 focus:outline-none"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-[#8C52FF] focus:ring focus:ring-blue-300 focus:ring-opacity-50 focus:outline-none"
                   required
                 />
               </div>
@@ -101,7 +101,7 @@ const UpdateQueries = () => {
                   defaultValue={query?.productPhoto}
                   type="url"
                   placeholder="Enter the product image URL"
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-[#09b850] focus:ring focus:ring-blue-300 focus:ring-opacity-50 focus:outline-none"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-[#8C52FF] focus:ring focus:ring-blue-300 focus:ring-opacity-50 focus:outline-none"
                   required
                 />
               </div>
@@ -115,7 +115,7 @@ const UpdateQueries = () => {
                   type="text"
                   defaultValue={query?.title}
                   placeholder="Enter your query title"
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-[#09b850] focus:ring focus:ring-blue-300 focus:ring-opacity-50 focus:outline-none"
+                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-[#8C52FF] focus:ring focus:ring-blue-300 focus:ring-opacity-50 focus:outline-none"
                   required
                 />
               </div>
@@ -132,7 +132,7 @@ const UpdateQueries = () => {
                 defaultValue={query?.boycott}
                 rows="4"
                 placeholder="Explain why you want to boycott this product"
-                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-[#09b850] focus:ring focus:ring-blue-300 focus:ring-opacity-50 focus:outline-none"
+                className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:border-[#8C52FF] focus:ring focus:ring-blue-300 focus:ring-opacity-50 focus:outline-none"
                 required
               ></textarea>
             </div>
@@ -141,7 +141,7 @@ const UpdateQueries = () => {
             <div className="flex justify-center mt-6">
               <button
                 type="submit"
-                className="px-8 py-3 text-white bg-[#09b850] rounded-md shadow-md hover:bg-[#09b850] focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 transition-colors"
+                className="px-8 py-3 text-white bg-[#8C52FF] rounded-md shadow-md hover:bg-[#8c52ffbd] focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 transition-colors"
               >
                 Update Query
               </button>
